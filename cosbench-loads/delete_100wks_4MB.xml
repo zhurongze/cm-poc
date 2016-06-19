@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="delete-100Workers-4M" description="sample benchmark for s3">
+
+  <storage type="s3" config="accesskey=LASTQG3HJVVQF310SD2U;secretkey=MboBU2RfEK4imC4rc+fyZxNNA3ymhkWh0dPeonxZ;endpoint=http://10.32.37.77:80" />
+
+  <workflow>
+    
+  <workstage name="delete 4M data with 100 workers">
+       <work name="Del4MBData" workers="100" totalOps="100000">
+         <operation type="delete" ratio="100" config="cprefix=test;oprefix=100wks_4M;containers=c(1);objects=s(1,100000)" />
+       </work>
+    </workstage>
+</workflow>
+
+</workload>
