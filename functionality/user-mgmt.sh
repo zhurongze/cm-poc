@@ -4,9 +4,15 @@ echo "用户管理"
 echo "================================================================================"
 echo "用户创建与删除之创建"
 
+# For J 
 radosgw-admin user create --uid=umtest1 --display-name="Tester1" \
 --email=test1@umcloud.com --access_key=LASTQG3HJVVQF310SD2U \
 --secret_key=MboBU2RfEK4imC4rc+fyZxNNA3ymhkWh0dPeonxZ
+
+# For H
+radosgw-admin user create --uid=umtest1 --display-name="Tester1" \
+--email=test1@umcloud.com --access_key=LASTQG3HJVVQF310SD2U \
+--secret=MboBU2RfEK4imC4rc+fyZxNNA3ymhkWh0dPeonxZ
 
 echo "================================================================================"
 echo "查看用户状态信息"
@@ -39,6 +45,7 @@ radosgw-admin user info --uid=umtest1
 
 echo "删除SK"
 echo "================================================================================"
+
 radosgw-admin user create --uid=umtest1 --display-name="Tester1" \
 --email=test1@umcloud.com --access_key=QASTQG3HJVVQF310SD2U \
 --secret_key=MboBU2RfEK4imC4rc+fyZxNNA3ymhkWh0dPeonxZ
