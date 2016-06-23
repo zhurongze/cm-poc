@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="get-500Workers-64k" description="sample benchmark for s3">
+
+  <storage type="s3" config="accesskey=LASTQG3HJVVQF310SD2U;secretkey=MboBU2RfEK4imC4rc+fyZxNNA3ymhkWh0dPeonxZ;endpoint=http://10.32.37.71:80" />
+
+  <workflow>
+    
+  <workstage name="get 64k data with 500 workers">
+       <work name="Get64KBData" workers="500" totalOps="100000">
+         <operation type="read" ratio="100" config="cprefix=test;oprefix=500wks_64k_destructive;containers=c(1);objects=u(1,100000)" />
+       </work>
+    </workstage>
+</workflow>
+
+</workload>

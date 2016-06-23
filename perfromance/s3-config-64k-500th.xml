@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="s3_64k_500th" description="s3_64k_500th">
+
+  <!--storage type="s3" config="accesskey=LASTQG3HJVVQF310SD2U;secretkey=MboBU2RfEK4imC4rc+fyZxNNA3ymhkWh0dPeonxZ;endpoint=http://123.59.92.230:8080" /-->
+
+  <workflow>
+
+    <workstage name="init">
+      <work type="init" workers="1" config="cprefix=s3test_umcloud;containers=c(1)" />
+    </workstage>
+
+    <workstage name="main">
+      <work name="main" workers="500">
+        <operation type="write" config="cprefix=s3test_umcloud;containers=c(1);objects=r(1,100000);size=c(64)KB" />
+      </work>
+    </workstage>
+
+    <workstage name="main">
+      <work name="main" workers="500">
+        <operation type="read" config="cprefix=s3test_umcloud;containers=c(1);objects=r(1,100000);size=c(64)KB" />
+      </work>
+    </workstage>
+
+    <workstage name="remove">
+      <work type="cleanup" name="main" workers="500" config="cprefix=s3test_umcloud;containers=c(1);objects=r(1,100000)" />
+    </workstage>
+
+    <workstage name="dispose">
+      <work type="dispose" workers="1" config="cprefix=s3test_umcloud;containers=c(1)" />
+    </workstage>
+
+  </workflow>
+
+</workload>
