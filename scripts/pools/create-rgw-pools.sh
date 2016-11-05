@@ -15,4 +15,4 @@ ceph osd pool create .users $SMALL_NUM $SMALL_NUM
 ceph osd pool create .users.email $SMALL_NUM $SMALL_NUM
 ceph osd pool create .users.swift $SMALL_NUM $SMALL_NUM
 ceph osd pool create .users.uid $SMALL_NUM $SMALL_NUM
-ceph osd pool create .rgw.buckets.extra $PG_BUM $SMALL_NUM
+ceph osd pool create .rgw.buckets.extra $SMALL_BUM $SMALL_NUM
